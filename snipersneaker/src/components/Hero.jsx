@@ -30,7 +30,7 @@ const Hero = ({ item }) => {
             game!
           </p>
           <Link to={"/shop"}>
-            <button className="bg-black text-white outline-none p-3 w-fit text-xl font-bold rounded-[30px] hover:bg-transparent hover:text-black duration-300 ease-in-out hover:border-2 hover:border-black">
+            <button className="bg-black text-white outline-none p-2 w-fit text-lg font-bold rounded-[20px] hover:bg-transparent hover:text-black duration-300 ease-in-out hover:border-2 hover:border-black">
               Shop Now
             </button>
           </Link>{" "}
