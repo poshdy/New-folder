@@ -15,7 +15,7 @@ const Hero = ({ item }) => {
           variants={textVariant()}
           initial="hidden"
           animate="show"
-          className="flex flex-col md:w-[40%]  gap-2 items-center md:items-start mb-4"
+          className="flex flex-col md:w-[30%]  gap-2 items-center md:items-start mb-4"
         >
           <h1 className={styles.heroText}>SNEAKER.</h1>
           <p className="text-center md:text-left">
@@ -37,17 +37,17 @@ const Hero = ({ item }) => {
         </motion.div>
         <motion.div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-3">
           <img
-            className="w-[350px] md:max-w-lg md:flex-grow flex-grow-0 object-cover"
+            className="w-[300px] md:max-w-sm md:flex-grow flex-grow-0 object-cover"
             src={hero3}
             alt=""
           />
           <img
-            className="w-[350px] md:w-[300px] object-cover"
+            className="w-[300px] md:w-[300px] object-cover"
             src={hero1}
             alt=""
           />
           <img
-            className="w-[350px] md:w-[300px] object-cover"
+            className="w-[300px] md:w-[300px] object-cover"
             src={hero2}
             alt=""
           />
