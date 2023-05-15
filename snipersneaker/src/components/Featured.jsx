@@ -28,25 +28,25 @@ const Featured = () => {
             variants={letterAni}
             whileHover={{ rotate: 5 }}
             transition={transition}
-            className=" w-[250px] h-[374px] lg:w-[350px] lg:h-[450px] object-cover "
+            className=" w-[250px] h-[374px] lg:w-[300px] lg:h-[450px] object-cover "
             src={conv}/>
           <motion.img
             variants={letterAni}
             whileHover={{ scale: 1.1 }}
             transition={transition}
-            className="w-[250px] h-[374px] lg:self-end lg:w-[350px] lg:h-[500px] object-cover"
+            className="w-[250px] h-[374px] lg:self-end lg:w-[300px] lg:h-[500px] object-cover"
             src={nike}/>
           <motion.img
             variants={letterAni}
             whileHover={{ scale: 0.9 }}
             transition={transition}
-            className="w-[250px] h-[374px] lg:pt-4  lg:w-[300px] lg:h-[600px]  object-cover"
+            className="w-[250px] h-[374px] lg:pt-4  lg:w-[275px] lg:h-[600px]  object-cover"
             src={adid}/>
           <motion.img
             variants={letterAni}
             whileHover={{ rotate: -5 }}
             transition={transition}
-            className="w-[250px] h-[374px]   lg:w-[350px] lg:h-[500px]  object-cover"
+            className="w-[250px] h-[374px]   lg:w-[300px] lg:h-[500px]  object-cover"
             src={vans}
           />
         </motion.div>
