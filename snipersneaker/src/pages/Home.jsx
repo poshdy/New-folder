@@ -10,9 +10,8 @@ import {
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <Hero />
-      <Brands />
       <Featured />
       <BestSeller />
       <BannerSec />

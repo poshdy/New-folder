@@ -13,7 +13,7 @@ const BestSeller = () => {
 
  
   return (
-    <div className="w-full ">
+    <div className="w-full my-8 ">
       <div className="container border-b-4 border-b-black">
         <div className="flex items-center justify-between">
           <h1 className="font-bold md:text-4xl text-2xl flex items-center lg:justify-start justify-center">

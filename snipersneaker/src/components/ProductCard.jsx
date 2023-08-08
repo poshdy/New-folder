@@ -20,17 +20,11 @@ const ProductCard = ({ data }) => {
 
   return (
     <>
-      <motion.div
-        variants={letterDiv}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        className="flex my-10 flex-wrap items-center gap-3 justify-center"
-      >
+      <div className="flex my-10 flex-wrap items-center gap-3 justify-center">
         {data?.map((pro, i) => (
           <motion.div
             variants={slideUp}
-            className="border-4 border-black w-[250px] lg:w-[350px] hover:bg-black/40 hover:text-white duration-500 "
+            className="border-4 border-black w-[250px]  hover:bg-black/40 hover:text-white duration-500 "
             key={i}
           >
             <div className="flex justify-between items-center px-2">
@@ -42,28 +36,27 @@ const ProductCard = ({ data }) => {
             </div>
             <Link to={`/product/${pro?.slug?.current}`}>
               <img
-                className="w-[250px] h-[250px]  lg:w-[350px] border-y-4 border-black lg:h-[400px] object-cover"
+                className="w-[250px] h-[250px]  border-y-4 border-black  object-cover"
                 src={`${urlFor(pro.image[0].asset._ref)}`}
               />
             </Link>
-            <div className="flex items-center flex-col md:flex-row md:justify-between p-1 my-4 ">
-              <h1 className="truncate w-40 text-base  font-bold">{pro.name}</h1>
-              <button
-                onClick={() => dispatch(addToCart(pro))}
-                className="bg-transparent font-bold w-fit h-fit outline-none border-2 border-black p-1 md:p-2 hover:bg-black hover:text-white duration-300 "
-              >
-                Add to cart
-              </button>
+            <div className="flex flex-col items-center gap-2 p-2">
+              <h1 className="truncate w-32 text-sm  font-bold">{pro.name}</h1>
+              <div className="flex items-center gap-2">
+                <button onClick={() => dispatch(addToCart(pro))} className="border-2 border-black py-1 px-3 font-bold">
+                  Add to cart
+                </button>
 
-              <AiOutlineHeart
-                onClick={() => handleFav(pro)}
-                className="cursor-pointer"
-                size={25}
-              />
+                <AiOutlineHeart
+                  onClick={() => handleFav(pro)}
+                  className="cursor-pointer"
+                  size={25}
+                />
+              </div>
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </>
   );
 };

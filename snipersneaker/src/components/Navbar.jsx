@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CiMenuBurger } from "react-icons/ci";
 import { BsBag } from "react-icons/bs";
-import { AiOutlineHeart , AiOutlineClose } from "react-icons/ai";;
+import { AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
+import { CiShop } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import Fav from "./Fav";
 import EmptyFav from "./EmptyFav";
@@ -14,29 +14,67 @@ const Navbar = () => {
 
   const Favs = useSelector((state) => state.cart);
 
-  const changeColor = () => {
-    if (window.scrollY >= 150) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
-  window.addEventListener("scroll", changeColor);
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 10) {
+        setColor(true);
+      } else {
+        setColor(false);
+      }
+    };
+    window.addEventListener("scroll", changeColor);
+    return () => window.removeEventListener("scroll", changeColor);
+  }, []);
 
   return (
-    <div className="w-full z-50 sticky top-0 py-3">
+    <header
+      className={`w-full z-50 sticky top-0 duration-300 ease-in-out border-b-2 border-black ${
+        color && "bg-white/90"
+      }`}
+    >
+      <nav className="flex items-center justify-around">
+        <Link to={"/"}>
+          <div className="flex flex-col -space-y-3 font-extrabold text-2xl uppercase">
+            <h1>Sniper.</h1>
+            <h1>Sneaker</h1>
+          </div>
+        </Link>
+        <div className="hidden md:flex gap-3 items-center font-bold text-sm ">
+          <Link to={"/"}>Home</Link>
+          <Link to={"/shop"}>Shop</Link>
+          <Link to={"/cart"}>Cart</Link>
+        </div>
+        <div className="flex gap-3 items-center ">
+          <Link className="flex md:hidden" to={"/shop"}>
+            <CiShop size={25} />
+          </Link>
+          <Link to={"/cart"}>
+            <BsBag size={20} />
+          </Link>
+          <AiOutlineHeart onClick={() => setFav(!fav)} size={20} />
+        </div>
+      </nav>
       <div
+        className={`absolute h-screen w-full md:w-[50%] bg-black duration-300 ease-in-out ${
+          fav ? "right-0" : "right-[-500%]"
+        }`}
+      >
+        {Favs?.favItems.length === 0 ? <EmptyFav /> : <Fav />}
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
+{
+  /* <div
         className={
           color
             ? "container flex items-center justify-between py-3 bg-black/80 text-white rounded-full p-3 duration-500 ease-in-out"
             : "container flex items-center justify-between py-3 duration-500 "
         }
       >
-        <CiMenuBurger
-          className="cursor-pointer"
-          onClick={() => setNav(!nav)}
-          size={25}
-        />
+      
 
         <Link to={"/"}>
           <h1 className=" text-2xl md:text-4xl font-black">SNIPER.SNEAKER.</h1>
@@ -72,10 +110,6 @@ const Navbar = () => {
           color="white"
           onClick={() => setFav(!fav)}
         />
-        {Favs?.favItems.length === 0 ? (<EmptyFav />) :(<Fav />)}
-      </div>
-    </div>
-  );
-};
-
-export default Navbar;
+      
+      </div> */
+}
