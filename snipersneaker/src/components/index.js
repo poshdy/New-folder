@@ -1,8 +1,7 @@
 import Hero from "./Hero";
 import Navbar from "./Navbar";
-import Footer from './Footer';
+import Footer from "./Footer";
 import Featured from "./Featured";
-import Brands from "./Brands";
 import BannerSec from "./BannerSec";
 import ProductCard from "./ProductCard";
 import SortPrice from "./SortPrice";
@@ -12,30 +11,17 @@ import RecommededPro from "./RecommededPro";
 import Fav from "./Fav";
 import EmptyFav from "./EmptyFav";
 
-
-
-
-
-
-
-
 export {
-    Hero,
-    Navbar,
-    Footer,
-Featured,
-Brands,
-BannerSec,
-ProductCard,
-SortPrice,
-FilterByBrand,
-BestSeller,
-Fav,
-EmptyFav, 
-RecommededPro
-
-
-
-
-
-}
+  Hero,
+  Navbar,
+  Footer,
+  Featured,
+  BannerSec,
+  ProductCard,
+  SortPrice,
+  FilterByBrand,
+  BestSeller,
+  Fav,
+  EmptyFav,
+  RecommededPro,
+};

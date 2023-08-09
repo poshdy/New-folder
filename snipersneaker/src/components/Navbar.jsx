@@ -8,7 +8,6 @@ import Fav from "./Fav";
 import EmptyFav from "./EmptyFav";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
   const [color, setColor] = useState(false);
   const [fav, setFav] = useState(false);
 
