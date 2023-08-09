@@ -2,7 +2,6 @@ import React from "react";
 import {
   BannerSec,
   BestSeller,
-  Brands,
   Hero,
   Featured,
   RecommededPro,
