@@ -4,10 +4,8 @@ import { useParams } from "react-router-dom";
 import { client } from "../lib/client";
 import { urlFor } from "../lib/client";
 import { AiOutlineHeart } from "react-icons/ai";
-import { motion } from "framer-motion";
-import { fadeIn, fadeItem} from "../animation/motion";
 import { sizes } from "../constants";
-import Loader from "../components/Loader";
+
 const ProductDetalis = () => {
   const { slug } = useParams();
   const FetchSlug = () => {
@@ -17,13 +15,11 @@ const ProductDetalis = () => {
 
     return product;
   };
-  const { data, isFetching, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["products", slug],
     queryFn: () => FetchSlug(),
   });
-  if (isFetching || isLoading) {
-    return <Loader/>;
-  }
+
   const newData = data[0];
   return (
     <div className="w-full h-full flex gap-5 flex-col my-10 ">
@@ -36,21 +32,15 @@ const ProductDetalis = () => {
           />
         </div>
         <div className="w-[50%] flex flex-col  items-center justify-center gap-8 ">
-          <motion.div
-            variants={fadeIn}
-            initial="hidden"
-            animate="show"
-            exit="exit"
-            className=" flex flex-col items-center  "
-          >
-            <motion.h1 variants={fadeItem} className="font-black text-center text-2xl md:text-4xl">
+          <div className=" flex flex-col items-center  ">
+            <h1 className="font-black text-center text-2xl md:text-4xl">
               {newData.name}
-            </motion.h1>
-            <motion.p variants={fadeItem} className="text-xl   md:text-3xl">
-              {newData.price}$
-            </motion.p>
-          </motion.div>
-          <div className=" flex w-full items-center gap-2 justify-center">
+            </h1>
+            <p variants={fadeItem} className="text-xl   md:text-3xl">
+              {newData.price}$ div{" "}
+            </p>
+          </div>
+          <div className=" flex w-full divms-center gap-2 justify-center">
             <button className="bg-black font-bold w-fit outline-none border-2 border-black p-2 text-white  hover:bg-transparent hover:text-black duration-300">
               Buy Now
             </button>
@@ -63,10 +53,7 @@ const ProductDetalis = () => {
       <div className="container border-4 flex border-black my-10  ">
         <div className="flex flex-wrap gap-3 w-[60%]">
           {newData?.image.map((img, i) => (
-            <motion.img
-              initial={{ y: 200, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, staggerChildren: i }}
+            <img
               key={i}
               className="w-[450px]"
               src={`${urlFor(img.asset._ref)}`}

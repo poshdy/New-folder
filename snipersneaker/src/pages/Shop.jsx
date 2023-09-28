@@ -6,20 +6,16 @@ import { useQuery } from "@tanstack/react-query";
 import { Fetcher } from "../Fetcher";
 import { urlFor } from "../lib/client";
 import { useState } from "react";
-import Loader from "../components/Loader";
 
 const Shop = () => {
   const [state, setState] = useState("");
   const [sort, setSort] = useState("");
 
-  const { data, isFetching, isLoading, isError } = useQuery({
+  const { data, isError } = useQuery({
     queryKey: ["products"],
     queryFn: () => Fetcher(),
   });
 
-  if (isFetching || isLoading) {
-    return <Loader/>;
-  }
   if (isError) {
     return console.error(isError);
   }
@@ -60,9 +56,9 @@ const Shop = () => {
               <option value="reebok">Reebok</option>
             </select>
           </div>
-            <SortPrice data={data} sort={sort} setSort={setSort} />
+          <SortPrice data={data} sort={sort} setSort={setSort} />
         </div>
-          <ProductCard data={newData} urlFor={urlFor} />
+        <ProductCard data={newData} urlFor={urlFor} />
       </div>
     </div>
   );

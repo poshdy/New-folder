@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsBag } from "react-icons/bs";
-import { AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineHeart} from "react-icons/ai";
 import { CiShop } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import Fav from "./Fav";
@@ -27,8 +27,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full z-50 sticky top-0 duration-300 ease-in-out border-b-2 border-black ${
-        color && "bg-white/90"
+      className={`w-full z-50 fixed top-0 duration-300 ease-in-out border-b-2 bg-white border-black ${
+        color && "bg-white/70"
       }`}
     >
       <nav className="flex items-center justify-around">

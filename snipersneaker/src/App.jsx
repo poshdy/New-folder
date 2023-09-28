@@ -1,20 +1,43 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import Cart from "./pages/Cart";
 import { Footer, Navbar } from "./components";
-import ProductDetalis from "./pages/ProductDetalis";
 import { Toaster } from "react-hot-toast";
+import { Suspense, lazy } from "react";
+const Shop = lazy(() => import("./pages/Shop"));
+const ProductDetalis = lazy(() => import("./pages/ProductDetalis"));
+const Cart = lazy(() => import("./pages/Cart"));
 function App() {
   return (
-    <div className="overflow-y-hidden">
+    <div className="overflow-y-hidden relative">
       <Navbar />
       <Toaster position="top-center" />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:slug" element={<ProductDetalis />} />
+
+        <Route
+          path="/shop"
+          element={
+            <Suspense fallback={<h1>Loadingg</h1>}>
+              <Shop />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Suspense fallback={<h1>Loadingg</h1>}>
+              <Cart />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/product/:slug"
+          element={
+            <Suspense fallback={<h1>Loadingg</h1>}>
+              <ProductDetalis />
+            </Suspense>
+          }
+        />
       </Routes>
       <Footer />
     </div>

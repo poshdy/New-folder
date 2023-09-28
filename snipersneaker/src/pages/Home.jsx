@@ -9,13 +9,13 @@ import {
 
 const Home = () => {
   return (
-    <div className="">
+    <>
       <Hero />
       <Featured />
       <BestSeller />
       <BannerSec />
       <RecommededPro />
-    </div>
+    </>
   );
 };
 
